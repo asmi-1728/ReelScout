@@ -36,10 +36,11 @@ function App() {
       setError("");
 
       try {
-        const url = search.trim()
-          ? `http://localhost:5000/api/movies?query=${encodeURIComponent(search)}`
-          : "http://localhost:5000/api/movies";
+        const API_URL = "https://reelscout-backend-3j0m.onrender.com/api/movies";
 
+        const url = search.trim()
+          ? `${API_URL}?query=${encodeURIComponent(search)}`
+          : API_URL;
         const response = await fetch(url);
 
         if (!response.ok) {
